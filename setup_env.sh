@@ -5,16 +5,17 @@
 # if virtual environment is activate then exit.
 if [ -n "$VIRTUAL_ENV" ]; then
     echo "Virtual environment is already activated."
-    exit 0
-fi
+else
+    echo "Virtual environment is not activated."
 
-# Check if .venv exists, if not create it.
-if [ ! -d .venv ]; then
-    python3 -m venv .venv
-fi
+    # Check if .venv exists, if not create it.
+    if [ ! -d .venv ]; then
+        python3 -m venv .venv
+    fi
 
-# Activate the virtual environment.
-source ".venv/bin/activate"
+    # Activate the virtual environment.
+    source ".venv/bin/activate"
+fi
 
 # Install the requirements.
 pip install -r requirements.txt
