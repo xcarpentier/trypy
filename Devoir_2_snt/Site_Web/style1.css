@@ -1,0 +1,32 @@
+body {
+  background-color: rgb(254, 209, 209);
+  padding-left: 150px;
+  padding-right: 150px;
+  font-size: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  color: darkblue;
+}
+
+h2 {
+  font-size: 30px;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  color: darkgreen;
+}
+
+img {
+  height: 400px;
+}
+
+section {
+  margin: 50px;
+  padding: 20px;
+  background-color: rgb(149, 219, 219);
+  border-radius: 50px;
+}

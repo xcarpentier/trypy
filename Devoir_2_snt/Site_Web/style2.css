@@ -1,0 +1,34 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 150px;
+  padding-right: 150px;
+  text-align: justify;
+  font-size: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 50px;
+  margin-top: 0px;
+  font-size: 50px;
+  color: rgb(179, 13, 13);
+}
+
+img {
+  height: 500px;
+}
+
+p {
+  text-align: justify;
+}
+
+ul {
+  text-align: left;
+}
+
+section {
+  padding: 50px;
+  background-color: rgb(108, 203, 203);
+  border-radius: 50px;
+}
