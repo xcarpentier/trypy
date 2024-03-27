@@ -1,6 +1,6 @@
 import socket
 
-host = "???"
+host = "192.168.1.81"
 port = 5000
 
 client_socket = socket.socket()
@@ -15,5 +15,5 @@ while message.lower().strip() != "bye":
     print("Received from server: " + data)
 
     message = input(" -> ")
-
+client_socket.send("bye".encode())
 client_socket.close()
