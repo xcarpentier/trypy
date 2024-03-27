@@ -6,7 +6,7 @@ print(host)
 port = 5000
 
 server_socket = socket.socket()
-server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+# server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind((host, port))
 server_socket.listen()
 conn, address = server_socket.accept()  # wait for connection
