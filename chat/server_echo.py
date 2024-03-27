@@ -1,5 +1,4 @@
 import socket
-import time
 
 host = "192.168.1.55"
 print(host)

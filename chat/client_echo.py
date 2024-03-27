@@ -1,10 +1,10 @@
 import socket
 
-host = "192.168.1.81"
+host = "192.168.1.55"
 port = 5000
 
 client_socket = socket.socket()
-client_socket.connect((host, port))  # server doit être démarré avant le client
+client_socket.connect((host, port))
 
 message = input(" -> ")
 

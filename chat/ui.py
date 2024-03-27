@@ -1,29 +1,44 @@
-import npyscreen, curses
+import npyscreen
+from collections import deque
 
 
-class MyTestApp(npyscreen.NPSAppManaged):
-    def onStart(self):
-        self.registerForm("MAIN", MainForm())
-
-
-class MainForm(npyscreen.Form):
+class ChatForm(npyscreen.FormBaseNew):
     def create(self):
-        self.add(
-            npyscreen.TitleText, name="Text:", value="Press Escape to quit application"
+        y, x = self.useable_space()
+        self.chat_history = self.add(
+            npyscreen.MultiLineEdit,
+            relx=2,
+            rely=2,
+            width=x - 4,
+            height=y - 6,
+            editable=False,
         )
-        self.how_exited_handers[npyscreen.wgwidget.EXITED_ESCAPE] = (
-            self.exit_application
+        self.new_message = self.add(
+            npyscreen.MultiLineEdit, relx=2, rely=y - 4, width=x - 4
         )
 
-    def exit_application(self):
-        self.parentApp.setNextForm(None)
-        self.editing = False
+    def on_ok(self):
+        message = self.new_message.value
+        self.chat_history.value += "You: " + message + "\n"
+        self.new_message.value = (
+            ""  # Effacer le champ de saisie après l'envoi du message
+        )
+        self.display()
 
 
-def main():
-    TA = MyTestApp()
-    TA.run()
+class ChatApplication(npyscreen.StandardApp):
+    def onStart(self):
+        self.internal_queue = deque()  # Initialiser la file d'attente interne
+        self.addForm("MAIN", ChatForm, name="Simple Chat")
+
+    def main_loop(self):
+        while True:
+            if self.internal_queue:  # Vérifier si la file d'attente n'est pas vide
+                yield self.internal_queue.pop()
+            else:
+                yield
 
 
 if __name__ == "__main__":
-    main()
+    app = ChatApplication()
+    app.run()
