@@ -1,6 +1,7 @@
 import socket
+import time
 
-host = socket.gethostbyname(socket.gethostname())
+host = "192.168.1.81"
 print(host)
 port = 5000
 
@@ -11,11 +12,10 @@ server_socket.listen()
 conn, address = server_socket.accept()  # wait for connection
 print("Waiting for connection...")
 print("Connection from: " + str(address))
-while True:
+data = ""
+while data.lower().strip() != "bye":
     data = conn.recv(1024).decode()
-    if data == "bye":
-        break
     print("from connected user: " + str(data))
     conn.send(data.encode())
 
-conn.close()  # close the connection
+conn.close()
