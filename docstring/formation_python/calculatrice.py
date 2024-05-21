@@ -18,7 +18,7 @@ def div(a: float, b: float) -> float:
     return c
 
 
-def pow(a: float, b: float) -> float:
+def power(a: float, b: float) -> float:
     c = a**b
     return c
 
@@ -48,7 +48,7 @@ while True:
                 c = div(a=a, b=b)
                 print(c)
             elif operator == "**":
-                c = pow(a=a, b=b)
+                c = power(a=a, b=b)
                 print(c)
             else:
                 print("Sorry, the operator is unknown of that calculator.")
