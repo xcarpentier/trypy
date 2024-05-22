@@ -29,6 +29,7 @@ L'action que vous choisissez : """
             print(
                 f"Vous avez pris une potion et gagné {potion} points de vie. Il {'vous reste ' if potion_number > 0 else 'ne vous reste aucune'}{potion_number if potion_number > 0 else ''} potion{'s' if potion_number > 1 else ''}."
             )
+            print("Vous passez votre tour...")
         else:
             print("Vous n'avez plus de potions.")
     else:
