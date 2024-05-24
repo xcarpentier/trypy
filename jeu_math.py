@@ -82,7 +82,7 @@ while True:
     score = 0
 
     print("***Math game***")
-    sleep(1.5)
+    sleep(1)
 
     user_choice = input(
         """1. Additions
@@ -100,7 +100,7 @@ Choisis une commande : """
 
     if user_choice == "1":
         print("*Additions*")
-        sleep(1.5)
+        sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
         for question_number in range(1, 11):
@@ -121,7 +121,7 @@ Choisis une commande : """
 
     elif user_choice == "2":
         print("*Soustractions*")
-        sleep(1.5)
+        sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
         for question_number in range(1, 11):
@@ -142,7 +142,7 @@ Choisis une commande : """
 
     elif user_choice == "3":
         print("*Multiplications*")
-        sleep(1.5)
+        sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
         for question_number in range(1, 11):
@@ -163,7 +163,7 @@ Choisis une commande : """
 
     elif user_choice == "4":
         print("*Divisions*")
-        sleep(1.5)
+        sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
         for question_number in range(1, 11):
@@ -184,7 +184,7 @@ Choisis une commande : """
 
     elif user_choice == "5":
         print("*Carrés*")
-        sleep(1.5)
+        sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
         for question_number in range(1, 11):
@@ -204,7 +204,7 @@ Choisis une commande : """
 
     elif user_choice == "6":
         print("*Racines carrées*")
-        sleep(1.5)
+        sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
         for question_number in range(1, 11):
@@ -226,7 +226,7 @@ Choisis une commande : """
 
     elif user_choice == "7":
         print("*Cubes*")
-        sleep(1.5)
+        sleep(1)
         mini, maxi = min_max_choice(inter_mini=5)
 
         for question_number in range(1, 6):
@@ -246,7 +246,7 @@ Choisis une commande : """
 
     elif user_choice == "8":
         print("*Racines cubiques*")
-        sleep(1.5)
+        sleep(1)
         mini, maxi = min_max_choice(inter_mini=5)
 
         for question_number in range(1, 6):
@@ -272,7 +272,7 @@ Choisis une commande : """
 
     else:
         print("Cette commande n'existe pas.")
-        sleep(1.5)
+        sleep(1)
         continue
 
     print(f"Ton score est de {score} pour cet exercice.")
