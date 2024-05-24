@@ -33,6 +33,7 @@ def min_max_choice(inter_mini: int):
             sleep(1.5)
         else:
             break
+    print("-" * 40)
     return mini, maxi
 
 
@@ -51,8 +52,10 @@ def number(user_response):
         sleep(1.5)
 
 
-def correct(user_response, c: int, score, square_cube: bool = False):
-    if not square_cube:
+def correct(
+    user_response, c: int, score: int, square: bool = False, division: bool = False
+):
+    if not square and not division:
         if user_response == c:
             print(f"✓ Bravo, la réponse était bien {c}.")
             sleep(1.5)
@@ -60,7 +63,7 @@ def correct(user_response, c: int, score, square_cube: bool = False):
         else:
             print(f"✗ Dommage, la réponse était {c}.")
             sleep(1.5)
-    elif square_cube:
+    elif square:
         if user_response == c or user_response == -c:
             if c != 0:
                 print(f"✓ Bravo, la réponse était bien {c} ou {-c}.")
@@ -71,6 +74,17 @@ def correct(user_response, c: int, score, square_cube: bool = False):
         else:
             print(f"✗ Dommage, la réponse était {c} ou {-c}.")
             sleep(1.5)
+    elif division:
+        if calculation != "0/0":
+            if user_response == c:
+                print(f"✓ Bravo, la réponse était bien {c}.")
+                sleep(1.5)
+                score += 1
+            else:
+                print(f"✗ Dommage, la réponse était {c}.")
+                sleep(1.5)
+        else:
+            print("✓ Bonne réponse. En effet toutes les réponses sont bonnes pour 0/0.")
     return score
 
 
@@ -179,7 +193,9 @@ Choisis une commande : """
             calculation_list.append(calculation)
             user_response = input(calculation + "=")
             user_response = number(user_response=user_response)
-            score = correct(user_response=user_response, c=c, score=score)
+            score = correct(
+                user_response=user_response, c=c, score=score, division=True
+            )
             print("-" * 40)
 
     elif user_choice == "5":
@@ -219,9 +235,7 @@ Choisis une commande : """
             calculation_list.append(a)
             user_response = input(f"La racine carrée de {a} est : ")
             user_response = number(user_response=user_response)
-            score = correct(
-                user_response=user_response, c=c, score=score, square_cube=True
-            )
+            score = correct(user_response=user_response, c=c, score=score, square=True)
             print("-" * 40)
 
     elif user_choice == "7":
