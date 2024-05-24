@@ -1,6 +1,6 @@
 from random import randint
 from time import sleep
-from os import mkdir
+from datetime import datetime
 
 
 def min_max_choice(inter_mini: int):
@@ -117,6 +117,7 @@ Choisis une commande : """
         sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
+        start_time = datetime.timestamp(datetime.now())
         for question_number in range(1, 11):
             while True:
                 a, b = def_a_b(mini=mini, maxi=maxi)
@@ -132,12 +133,14 @@ Choisis une commande : """
             user_response = number(user_response=user_response)
             score = correct(user_response=user_response, c=c, score=score)
             print("-" * 40)
+        stop_time = datetime.timestamp(datetime.now())
 
     elif user_choice == "2":
         print("*Soustractions*")
         sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
+        start_time = datetime.timestamp(datetime.now())
         for question_number in range(1, 11):
             while True:
                 a, b = def_a_b(mini=mini, maxi=maxi)
@@ -153,12 +156,14 @@ Choisis une commande : """
             user_response = number(user_response=user_response)
             score = correct(user_response=user_response, c=c, score=score)
             print("-" * 40)
+        stop_time = datetime.timestamp(datetime.now())
 
     elif user_choice == "3":
         print("*Multiplications*")
         sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
+        start_time = datetime.timestamp(datetime.now())
         for question_number in range(1, 11):
             while True:
                 a, b = def_a_b(mini=mini, maxi=maxi)
@@ -174,12 +179,14 @@ Choisis une commande : """
             user_response = number(user_response=user_response)
             score = correct(user_response=user_response, c=c, score=score)
             print("-" * 40)
+        stop_time = datetime.timestamp(datetime.now())
 
     elif user_choice == "4":
         print("*Divisions*")
         sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
+        start_time = datetime.timestamp(datetime.now())
         for question_number in range(1, 11):
             while True:
                 c, b = def_a_b(mini=mini, maxi=maxi)
@@ -197,12 +204,14 @@ Choisis une commande : """
                 user_response=user_response, c=c, score=score, division=True
             )
             print("-" * 40)
+        stop_time = datetime.timestamp(datetime.now())
 
     elif user_choice == "5":
         print("*Carrés*")
         sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
+        start_time = datetime.timestamp(datetime.now())
         for question_number in range(1, 11):
             while True:
                 a = randint(mini, maxi)
@@ -217,12 +226,14 @@ Choisis une commande : """
             user_response = number(user_response=user_response)
             score = correct(user_response=user_response, c=c, score=score)
             print("-" * 40)
+        stop_time = datetime.timestamp(datetime.now())
 
     elif user_choice == "6":
         print("*Racines carrées*")
         sleep(1)
         mini, maxi = min_max_choice(inter_mini=10)
 
+        start_time = datetime.timestamp(datetime.now())
         for question_number in range(1, 11):
             while True:
                 c = randint(mini, maxi)
@@ -237,12 +248,14 @@ Choisis une commande : """
             user_response = number(user_response=user_response)
             score = correct(user_response=user_response, c=c, score=score, square=True)
             print("-" * 40)
+        stop_time = datetime.timestamp(datetime.now())
 
     elif user_choice == "7":
         print("*Cubes*")
         sleep(1)
         mini, maxi = min_max_choice(inter_mini=5)
 
+        start_time = datetime.timestamp(datetime.now())
         for question_number in range(1, 6):
             while True:
                 a = randint(mini, maxi)
@@ -257,12 +270,14 @@ Choisis une commande : """
             user_response = number(user_response=user_response)
             score = correct(user_response=user_response, c=c, score=score)
             print("-" * 40)
+        stop_time = datetime.timestamp(datetime.now())
 
     elif user_choice == "8":
         print("*Racines cubiques*")
         sleep(1)
         mini, maxi = min_max_choice(inter_mini=5)
 
+        start_time = datetime.timestamp(datetime.now())
         for question_number in range(1, 6):
             while True:
                 c = randint(mini, maxi)
@@ -277,9 +292,12 @@ Choisis une commande : """
             user_response = number(user_response=user_response)
             score = correct(user_response=user_response, c=c, score=score)
             print("-" * 40)
+        stop_time = datetime.timestamp(datetime.now())
 
     elif user_choice == "9":
-        print(f"Tu as gagné {total_score} points pendant cette session.")
+        print(
+            f"{f'Tu as gagné {total_score}' if total_score > 0 else 'Tu n as pas gagné de'} points pendant cette session."
+        )
         print("Au revoir !")
         sleep(1)
         break
@@ -289,7 +307,11 @@ Choisis une commande : """
         sleep(1)
         continue
 
-    print(f"Ton score est de {score}/{question_number} pour cet exercice.")
+    time = round(float(stop_time) - float(start_time))
+    print(
+        f"""Ton score est de {score}/{question_number} pour cet exercice.
+Tu as réalisé cet exercice en {time} secondes."""
+    )
     sleep(1.5)
     total_score += score
     print("-" * 40)
