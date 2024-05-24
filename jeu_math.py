@@ -265,7 +265,7 @@ Choisis une commande : """
             print("-" * 40)
 
     elif user_choice == "9":
-        print(f"Tu as gagné {total_score} pendant cette session.")
+        print(f"Tu as gagné {total_score} points pendant cette session.")
         print("Au revoir !")
         sleep(1)
         break
@@ -275,7 +275,7 @@ Choisis une commande : """
         sleep(1)
         continue
 
-    print(f"Ton score est de {score} pour cet exercice.")
+    print(f"Ton score est de {score}/{question_number} pour cet exercice.")
     sleep(1.5)
     total_score += score
     print("-" * 40)
