@@ -296,7 +296,7 @@ Choisis une commande : """
 
     elif user_choice == "9":
         print(
-            f"{f'Tu as gagné {total_score}' if total_score > 0 else 'Tu n as pas gagné de'} points pendant cette session."
+            f"{f'Tu as gagné {total_score}' if total_score > 0 else 'Tu n as pas gagné de points pendant cette session.'}"
         )
         print("Au revoir !")
         sleep(1)
