@@ -35,19 +35,19 @@ def winner(board: List[str]):
   if board[0] == board[1] == board[2] == "X" or board[0] == board[1] == board[2] == "O":
     winner = "X" if board[0] == "X" else "O"
   elif board[3] == board[4] == board[5] == "X" or board[3] == board[4] == board[5] == "O":
-    winner == "X" if board[3] == "X" else "O"
+    winner = "X" if board[3] == "X" else "O"
   elif board[6] == board[7] == board[8] == "X" or board[6] == board[7] == board[8] == "O":
-    winner == "X" if board[6] == "X" else "O"
+    winner = "X" if board[6] == "X" else "O"
   elif board[0] == board[3] == board[6] == "X" or board[0] == board[3] == board[6] == "O":
-    winner == "X" if board[0] == "X" else "O"
+    winner = "X" if board[0] == "X" else "O"
   elif board[1] == board[4] == board[7] == "X" or board[1] == board[4] == board[7] == "O":
-    winner == "X" if board[1] == "X" else "O"
+    winner = "X" if board[1] == "X" else "O"
   elif board[2] == board[5] == board[8] == "X" or board[2] == board[5] == board[8] == "O":
-    winner == "X" if board[2] == "X" else "O"
+    winner = "X" if board[2] == "X" else "O"
   elif board[0] == board[4] == board[8] == "X" or board[0] == board[4] == board[8] == "O":
-    winner == "X" if board[0] == "X" else "O"
+    winner = "X" if board[0] == "X" else "O"
   elif board[2] == board[4] == board[6] == "X" or board[2] == board[4] == board[6] == "O":
-    winner == "X" if board[2] == "X" else "O"
+    winner = "X" if board[2] == "X" else "O"
 
   return winner
 
@@ -64,7 +64,7 @@ def change_player(current_player: str) -> str:
 def main() -> None:
   board = [".", ".", ".", ".", ".", ".", ".", ".", "."]
   current_player = "X"
-  while not board_is_full(board=board) and winner(board=board) == None:
+  while not board_is_full(board=board) and not winner(board=board):
     show_board(board=board)
     print(f"C'est au joueur {current_player} de jouer.")
     square_to_play = ask_square(board=board)
